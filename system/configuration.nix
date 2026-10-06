@@ -41,15 +41,6 @@
 
   	console.keyMap = "la-latin1";
 
-	#users
-
-  	users.users."dision" = {
-    		isNormalUser = true;
-    		description = "dision";
-    		extraGroups = [ "networkmanager" "wheel" ];
-    		packages = with pkgs; [];
-  	};
-
   	nixpkgs.config.allowUnfree = true;
 
   	system.stateVersion = "26.05"; #<-- do not touch!

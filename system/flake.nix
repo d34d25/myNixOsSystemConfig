@@ -24,8 +24,20 @@
 
 				({config, ...}:
 				{
+					#users
 
+					users.users."dision" = {
+				    		isNormalUser = true;
+				    		description = "dision";
+				    		extraGroups = [ "networkmanager" "wheel" "docker"];
+				    		packages = [];
+				  	};
+
+					#services					
+				
 					services.xserver.enable = true;
+
+					virtualisation.docker.enable = true;
 				
 					#drivers
 
@@ -62,13 +74,13 @@
 						stable.librewolf
 
 						stable.gpu-screen-recorder
-						stable.gpu-screen-recorder-gtk						
+						stable.gpu-screen-recorder-gtk
 
 					];
 
 				})
 			
-				./configuration.nix			
+				./configuration.nix		
 	
 			];
 
