@@ -29,15 +29,13 @@
 					users.users."dision" = {
 				    		isNormalUser = true;
 				    		description = "dision";
-				    		extraGroups = [ "networkmanager" "wheel" "docker"];
+				    		extraGroups = [ "networkmanager" "wheel"];
 				    		packages = [];
 				  	};
 
 					#services					
 				
 					services.xserver.enable = true;
-
-					virtualisation.docker.enable = true;
 				
 					#drivers
 
