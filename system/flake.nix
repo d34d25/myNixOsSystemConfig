@@ -31,7 +31,7 @@
 				    		description = "dision";
 				    		extraGroups = [ "networkmanager" "wheel"];
 				    		packages = [];
-				  	};
+				 	};
 
 					#services					
 				
@@ -51,6 +51,10 @@
 
 					services.xserver.desktopManager.xfce.enable = true;
 					services.displayManager.defaultSession = "xfce";
+
+					#fonts
+	
+					fonts.packages = [stable.jetbrains-mono];
 
 					#programs
 
