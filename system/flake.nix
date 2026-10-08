@@ -64,6 +64,14 @@
 
 					environment.systemPackages = [
 
+						#xfce theme
+
+						stable.arc-theme
+						stable.elementary-xfce-icon-theme
+						stable.kdePackages.breeze
+
+						#----------
+
 						stable.git
 						stable.htop
 						stable.fastfetch
