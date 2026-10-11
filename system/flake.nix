@@ -1,5 +1,5 @@
 {
-	description = "system config flake";
+	description = "vm test";
 
 	inputs = {
 		nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
@@ -7,7 +7,7 @@
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 	};
 
-	outputs = {self, nixpkgs-stable, nixpkgs-unstable} @inputs:
+	outputs = {self, nixpkgs-stable, nixpkgs-unstable, ...} @inputs:
 	let
 		system = "x86_64-linux";
 		
@@ -24,7 +24,5 @@
 			modules = [./hardware-configuration.nix ./configuration.nix];
 		
 		};
-
 	};
-
 }
