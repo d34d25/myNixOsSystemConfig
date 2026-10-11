@@ -1,5 +1,5 @@
 {
-	description = "vm test";
+	description = "system config flake";
 
 	inputs = {
 		nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
