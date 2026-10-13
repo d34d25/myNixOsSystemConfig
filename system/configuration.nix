@@ -73,7 +73,7 @@
 	};
 
 	hardware.nvidia = {
-		open = true;
+		open = false; #closed is supposed to offer better performance
 		package = config.boot.kernelPackages.nvidiaPackages.production;
 	};
 
@@ -82,20 +82,6 @@
 
 		displayManager.gdm.enable = true;
 	};
-
-	programs.dconf.enable = true;
-
-	programs.dconf.profiles.user.databases = [
-
-		{
-			settings = {
-				"org/gnome/desktop/wm/preferences" = {
-					button-layout = "appmenu:minimize,maximize,close"; #adds minimize, maximize and close buttons to windows in gnome
-				};
-			};
-		}	
-
-	];
 
 	#programs
 
