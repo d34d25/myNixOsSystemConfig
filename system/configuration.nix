@@ -77,6 +77,11 @@
 		package = config.boot.kernelPackages.nvidiaPackages.production;
 	};
 
+	hardware.graphics = {
+		enable = true;
+		enable32Bit = true;
+	};
+
 	services = {
 		desktopManager.gnome.enable = true;
 
@@ -102,7 +107,9 @@
 		stable.blender
 		stable.librewolf
 
-		stable.gpu-screen-recorder-gtk
+		stable.neovim
+
+		#stable.gpu-screen-recorder-gtk
 
 	];
 
