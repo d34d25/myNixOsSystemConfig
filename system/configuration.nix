@@ -1,6 +1,6 @@
-{config, stable, unstable, ...}:
+{ config, stable, unstable, ... }:
 {
-	#boot
+  	#boot
 
 	boot.loader = {
 		systemd-boot.enable = true;
@@ -15,16 +15,7 @@
 		firewall.enable = true;
 	};
 
-	#users
-
-	users.users."dision" = {
-		isNormalUser = true;
-		description = "dision";
-		extraGroups = [ "networkmanager" "wheel"];
-		packages = [];
-	};
-
-	#time zone / locale
+	#time zone, locale
 
 	time.timeZone = "America/Argentina/Buenos_Aires";
 
@@ -42,8 +33,35 @@
     		LC_TIME = "en_US.UTF-8";
   	};
 
-	#sound
+	#services, drivers & keyboard
 	
+	console.keyMap = "la-latin1";
+
+	services.xserver = {
+
+		enable = true;
+
+		xkb = {		
+			layout = "latam";
+			variant = "";
+		};
+
+		autoRepeatDelay = 200;
+		autoRepeatInterval = 35;
+
+		videoDrivers = ["nvidia"];
+
+	};
+
+	hardware.nvidia.open = false;
+
+	hardware.graphics = {
+		enable = true;
+		enable32Bit = true;
+	};
+
+	#sound
+
 	security.rtkit.enable = true;
 
 	services.pipewire = {
@@ -53,45 +71,26 @@
 		pulse.enable = true;
 	};
 
-	#services & drivers & keyboard
-
-	console.keyMap = "la-latin1";
-
-	services.xserver = {
-	
-		enable = true;
-		videoDrivers = ["nvidia"];
-		
-		autoRepeatDelay = 200;
-		autoRepeatInterval = 35;
-
-		xkb = {
-			layout = "latam";
-    			variant = "";
-		};
-		
-	};
-
-	hardware.nvidia = {
-		open = false; #closed is supposed to offer better performance
-		package = config.boot.kernelPackages.nvidiaPackages.production;
-	};
-
-	hardware.graphics = {
-		enable = true;
-		enable32Bit = true;
-	};
+	#desktop
 
 	services = {
 		desktopManager.gnome.enable = true;
-
 		displayManager.gdm.enable = true;
 	};
+
+  	#users
+
+  	users.users."dision" = {
+    		isNormalUser = true;
+    		description = "dision";
+    		extraGroups = [ "networkmanager" "wheel" ];
+    		packages = [];
+  	};
 
 	#programs
 
 	programs.vscode = {
-						
+
 		enable = true;
 		package = stable.vscode;
 		extensions = [stable.vscode-extensions.ms-vscode.cpptools];
@@ -105,19 +104,15 @@
 		stable.fastfetch
 		stable.aseprite
 		stable.blender
-		stable.librewolf
+		stable.librewolf	
 
-		stable.neovim
-
-		#stable.gpu-screen-recorder-gtk
-
-	];
+	];	
 
 	#misc
 
-	nixpkgs.config.allowUnfree = true;
-
 	nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  	nixpkgs.config.allowUnfree = true;
 
 	system.stateVersion = "26.05";
 
