@@ -74,14 +74,14 @@
     		pulse.enable = true;
     	};
     	
-    	#desktop
+	#desktop
     	
 	services = {
 		desktopManager.gnome.enable = true;
 		displayManager.gdm.enable = true;
 	};
     	
-    	#users
+	#users
     	
   	users.users."dision" = {
     		isNormalUser = true;
