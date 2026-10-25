@@ -4,8 +4,8 @@
   	#boot
   
   	boot.loader = {
-  		systemd-boot.enable = true;
-  		efi.canTouchEfiVariables = true;
+		systemd-boot.enable = true;
+		efi.canTouchEfiVariables = true;
   	};
 
 	#networking
@@ -68,10 +68,10 @@
 	security.rtkit.enable = true;
 	
   	services.pipewire = {
-    		enable = true;
-    		alsa.enable = true;
-    		alsa.support32Bit = true;
-    		pulse.enable = true;
+		enable = true;
+		alsa.enable = true;
+		alsa.support32Bit = true;
+		pulse.enable = true;
 	};
     	
 	#desktop
@@ -84,10 +84,10 @@
 	#users
     	
   	users.users."dision" = {
-    		isNormalUser = true;
-    		description = "dision";
-    		extraGroups = [ "networkmanager" "wheel" ];
-    		packages = [];
+		isNormalUser = true;
+		description = "dision";
+		extraGroups = [ "networkmanager" "wheel" ];
+		packages = [];
 	};
 
 	#programs
