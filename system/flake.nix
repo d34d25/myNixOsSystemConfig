@@ -1,5 +1,5 @@
 {
-	description = "flake for the system config";
+	description = "flake for the system configuration";
 
 	inputs = {
 		nixpkgs-stable.url = "nixpkgs/nixos-26.05";
@@ -15,11 +15,9 @@
 	in
 	{
 		nixosConfigurations.dev = nixpkgs-stable.lib.nixosSystem {
-
 			specialArgs = {inherit inputs stable unstable;};
 
 			modules = [./hardware-configuration.nix ./configuration.nix];
-
 		};
 	};
 }

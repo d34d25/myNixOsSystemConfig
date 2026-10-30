@@ -1,14 +1,14 @@
 { config, stable, unstable, ... }:
 
 {
-	#boot
-
-	boot.loader = {
+ 	#boot
+ 
+ 	boot.loader = {
 		systemd-boot.enable = true;
 		efi.canTouchEfiVariables = true;
-	};
-
-	#networking
+ 	};
+ 
+ 	#networking
 
 	networking = {
 		hostName = "dision";
@@ -16,7 +16,7 @@
 		firewall.enable = true;
 	};
 
-	# time zone
+	#time zone
 
 	time.timeZone = "America/Argentina/Buenos_Aires";
 
@@ -58,8 +58,8 @@
 	#desktop
 
 	services = {
-		desktopManager.gnome.enable = true;
 		displayManager.gdm.enable = true;
+		desktopManager.gnome.enable = true;
 	};
 
 	#users
@@ -80,19 +80,17 @@
 	};
 
 	environment.systemPackages = [
-
 		stable.git
 		stable.htop
 		stable.fastfetch
 		stable.aseprite
 		stable.blender
 		stable.librewolf
-
-	];
+	];  
 
 	#misc
 
-	nix.settings.experimental-features = ["nix-command" "flakes"];	
+	nix.settings.experimental-features = ["nix-command" "flakes"];
 
 	nixpkgs.config.allowUnfree = true;
 
