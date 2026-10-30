@@ -1,6 +1,8 @@
 {
     "extensions.ignoreRecommendations": true,
 
+    "telemetry.telemetryLevel": "off",
+
     "terminal.integrated.env.linux": {
         "HISTFILE": "/home/dision/.vscode_bash_history.txt"
     }
