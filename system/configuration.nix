@@ -1,7 +1,7 @@
 { config, stable, unstable, ... }:
 
 {
-  	#boot
+	#boot
 
 	boot.loader = {
 		systemd-boot.enable = true;
