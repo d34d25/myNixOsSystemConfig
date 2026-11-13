@@ -88,6 +88,7 @@
 		stable.aseprite
 		stable.blender
 		stable.librewolf
+		stable.gpu-screen-recorder-gtk
 
 		unstable.gram
 	];
