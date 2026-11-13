@@ -5,7 +5,7 @@
 
 	boot.loader = {
 		systemd-boot.enable = true;
-  		efi.canTouchEfiVariables = true;		
+		efi.canTouchEfiVariables = true;
 	};
 
 	#networking
@@ -28,9 +28,9 @@
 
 	services.pipewire = {
 		enable = true;
-    		alsa.enable = true;
-    		alsa.support32Bit = true;
-    		pulse.enable = true;
+		alsa.enable = true;
+		alsa.support32Bit = true;
+		pulse.enable = true;
 	};
 
 	#services, keyboard and drivers
@@ -65,9 +65,9 @@
 	#users
 
 	users.users."dision" = {
-    		isNormalUser = true;
-    		description = "dision";
-    		extraGroups = [ "networkmanager" "wheel" ];
+		isNormalUser = true;
+		description = "dision";
+		extraGroups = [ "networkmanager" "wheel" ];
   	};
 
 	#programs
@@ -75,7 +75,7 @@
 	fonts.packages = [stable.jetbrains-mono];
 
 	users.users."dision".packages = [
-		
+
 		#theming
 		stable.arc-theme
 		stable.elementary-xfce-icon-theme
@@ -99,5 +99,4 @@
 	nixpkgs.config.allowUnfree = true;
 
 	system.stateVersion = "26.05";
-
 }
