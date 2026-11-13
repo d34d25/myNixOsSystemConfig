@@ -1,5 +1,5 @@
 {
-	description = "flake for the system configuration";
+	description = "flake for minimal system configuration";
 
 	inputs = {
 		nixpkgs-stable.url = "nixpkgs/nixos-26.05";
@@ -14,7 +14,8 @@
 		unstable = import nixpkgs-unstable {inherit system; config.allowUnfree = true;};
 	in
 	{
-		nixosConfigurations.dev = nixpkgs-stable.lib.nixosSystem {
+		nixosConfigurations.dev = nixpkgs-stable.lib.nixosSystem
+		{
 			specialArgs = {inherit inputs stable unstable;};
 
 			modules = [./hardware-configuration.nix ./configuration.nix];

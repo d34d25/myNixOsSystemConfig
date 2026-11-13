@@ -1,14 +1,14 @@
 { config, stable, unstable, ... }:
 
 {
- 	#boot
- 
- 	boot.loader = {
+  	#boot
+
+	boot.loader = {
 		systemd-boot.enable = true;
-		efi.canTouchEfiVariables = true;
- 	};
- 
- 	#networking
+  		efi.canTouchEfiVariables = true;		
+	};
+
+	#networking
 
 	networking = {
 		hostName = "dision";
@@ -28,12 +28,12 @@
 
 	services.pipewire = {
 		enable = true;
-		alsa.enable = true;
-		alsa.support32Bit = true;
-		pulse.enable = true;
+    		alsa.enable = true;
+    		alsa.support32Bit = true;
+    		pulse.enable = true;
 	};
 
-	#services, drivers and keyboard
+	#services, keyboard and drivers
 
 	console.keyMap = "la-latin1";
 
@@ -58,35 +58,39 @@
 	#desktop
 
 	services = {
-		displayManager.gdm.enable = true;
-		desktopManager.gnome.enable = true;
+		displayManager.ly.enable = true;
+		xserver.desktopManager.xfce.enable = true;
 	};
 
 	#users
 
 	users.users."dision" = {
-		isNormalUser = true;
-		description = "dision";
-		extraGroups = [ "networkmanager" "wheel" ];
-		packages = [];
-	};
+    		isNormalUser = true;
+    		description = "dision";
+    		extraGroups = [ "networkmanager" "wheel" ];
+  	};
 
 	#programs
 
-	programs.vscode = {
-		enable = true;
-		package = stable.vscode;
-		extensions = [stable.vscode-extensions.ms-vscode.cpptools];
-	};
+	fonts.packages = [stable.jetbrains-mono];
 
-	environment.systemPackages = [
+	users.users."dision".packages = [
+		
+		#theming
+		stable.arc-theme
+		stable.elementary-xfce-icon-theme
+		stable.kdePackages.breeze
+
+		#apps
 		stable.git
 		stable.htop
 		stable.fastfetch
 		stable.aseprite
 		stable.blender
 		stable.librewolf
-	];  
+
+		unstable.gram
+	];
 
 	#misc
 
@@ -95,4 +99,5 @@
 	nixpkgs.config.allowUnfree = true;
 
 	system.stateVersion = "26.05";
+
 }
